@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
 import './globals.css'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
-export const metadata: Metadata = {
-  title: 'Trade Events Portal',
-  description: 'Global Trade Events Portal for managing events',
-}
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+})
 
 export default function RootLayout({
   children,
@@ -12,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <ErrorBoundary>
+      <html lang='en' className={poppins.variable}>
+        <body>{children}</body>
+      </html>
+    </ErrorBoundary>
   )
 }
