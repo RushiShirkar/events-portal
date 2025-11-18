@@ -1,19 +1,16 @@
+import { FlagIcon } from 'lucide-react'
 import Link from 'next/link'
 
-export const metadata = {
-  title: '404 - Page Not Found',
-}
-
-export default function NotFoundPage() {
+export default function FallbackUI() {
   return (
-    <main className='grid min-h-[660px] place-items-center bg-white px-6 lg:px-8'>
+    <div className='h-screen mx-auto grid place-items-center text-center px-8'>
       <div className='text-center'>
-        <p className='text-base font-semibold text-blue-500'>404</p>
-        <h1 className='mt-4 text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl'>
-          Page not found
+        <FlagIcon className='w-20 h-20 mx-auto text-blue-500' />
+        <h1 className='mt-4 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
+          Something Went Wrong.
         </h1>
         <p className='mt-6 text-lg text-gray-600'>
-          {`Sorry, we couldn’t find the page you’re looking for.`}
+          {`Please try refreshing the page or come back later.`}
         </p>
         <div className='mt-10 flex items-center justify-center'>
           <Link
@@ -24,10 +21,10 @@ export default function NotFoundPage() {
               focus-visible:outline-offset-2 focus-visible:outline-blue-600
             '
           >
-            Go back home
+            Refresh page
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
