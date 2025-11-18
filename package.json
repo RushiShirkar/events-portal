@@ -57,5 +57,18 @@
     "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "browserslist": {
+    "production": [
+      "defaults",
+      "not IE 11",
+      "not op_mini all",
+      "not safari < 12"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

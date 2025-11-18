@@ -3,14 +3,14 @@ import UpcomingEvents from '@/features/UpcomingEvents'
 import { type Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Trade Events Portal',
+  title: 'TradeSphere | Global Trade Events Portal',
   description: 'Global Trade Events Portal for managing events',
 }
 
 export default function Home() {
   return (
     <>
-      <section className='w-full h-screen md:max-h-[500px] bg-blue-400 flex flex-col justify-center items-center'>
+      <section className='w-full h-screen md:max-h-[500px] bg-blue-600 flex flex-col justify-center items-center'>
         <h1 className='text-6xl font-extrabold max-w-3xl text-center text-white'>
           Global Trade Events Platform
         </h1>

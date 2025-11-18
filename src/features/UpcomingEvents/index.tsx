@@ -12,8 +12,8 @@ const UpcomingEvents = ({ upcomingEvents }: UpcomingEventsProps) => {
       <ul className='flex flex-wrap gap-8 mt-8'>
         {upcomingEvents && upcomingEvents?.length > 0 ? (
           <>
-            {upcomingEvents?.map((event: Event) => (
-              <li key={event?.id}>
+            {upcomingEvents?.map((event: Event, index: number) => (
+              <li key={index}>
                 <EventCard eventDetails={event} />
               </li>
             ))}

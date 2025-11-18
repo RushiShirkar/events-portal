@@ -14,14 +14,14 @@ const Header = () => {
   return (
     <>
       <header
-        className={`w-full z-100 top-0 start-0 bg-white/90 backdrop-blur-md ${open ? 'fixed shadow-md' : ''} `}
+        className={`w-full z-100 top-0 start-0 bg-white backdrop-blur-md ${open ? 'fixed shadow-md' : ''} `}
       >
         <div className='px-6 md:px-12 py-4 flex justify-between items-center'>
           {/* Logo */}
           <Link
             href='/'
             aria-label='Home'
-            className='text-xl font-semibold text-blue-500'
+            className='text-xl font-semibold text-blue-600'
           >
             TradeSphere
           </Link>
@@ -35,8 +35,8 @@ const Header = () => {
                     href={item.href}
                     aria-label={item.title}
                     className={`
-                      text-sm font-medium text-[#565D6DFF] hover:text-blue-500 active:text-blue-600
-                      ${pathname === item.href ? 'text-blue-500' : ''}
+                      text-sm font-medium text-[#565D6DFF] hover:text-blue-700 active:text-blue-700
+                      ${pathname === item.href ? 'text-blue-700' : ''}
                     `}
                   >
                     {item.title}
@@ -83,7 +83,7 @@ const Header = () => {
                     <Link
                       href={item.href}
                       aria-label={item.title}
-                      className='text-sm font-medium text-[#565D6DFF] hover:text-blue-500'
+                      className='text-sm font-medium text-[#565D6DFF] hover:text-blue-700'
                       onClick={() => setOpen(false)}
                     >
                       {item.title}

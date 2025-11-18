@@ -18,6 +18,7 @@ const SelectTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
+    aria-label='Select'
     className={cn(
       `
         flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border 

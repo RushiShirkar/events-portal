@@ -10,18 +10,21 @@ interface EventCardProps {
 
 const EventCard = ({ eventDetails }: EventCardProps) => {
   return (
-    <div className='card flex flex-col rounded-xl border'>
-      <Image
-        src='/assets/images/EventImage.png'
-        alt=''
-        width='379'
-        height='192'
-        className='rounded-t-xl'
-      />
+    <div className='flex flex-col rounded-xl border'>
+      <div className='relative h-64 w-full'>
+        <Image
+          src='/assets/images/EventImage.png'
+          alt=''
+          fill
+          className='rounded-t-xl object-cover'
+          priority
+          fetchPriority='high'
+        />
+      </div>
       <div className='flex flex-col justify-center p-4 md:p-5 gap-3'>
-        <h4 className='text-base md:text-lg font-semibold text-[#181B22FF]'>
+        <h2 className='text-base md:text-lg font-semibold text-[#181B22FF]'>
           Global Tech Innovation Expo 2024
-        </h4>
+        </h2>
         <div className='flex gap-2 items-center'>
           <div className='flex gap-1 justify-center items-center'>
             <MapPin className='text-[#565D6DFF] w-4 h-4' />

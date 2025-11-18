@@ -18,9 +18,9 @@ export default function RootLayout({
   return (
     <ErrorBoundary>
       <html lang='en' className={poppins.variable}>
-        <body>
+        <body className='min-h-screen flex flex-col'>
           <Header />
-          {children}
+          <main className='flex-grow'>{children}</main>
           <Footer />
         </body>
       </html>

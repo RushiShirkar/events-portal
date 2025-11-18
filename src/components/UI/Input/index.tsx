@@ -56,7 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
             'h-8 w-full rounded-md border bg-white text-gray-900 placeholder:text-gray-400 text-sm px-2',
             leftIcon ? 'pl-8' : '',
             rightIcon ? 'pr-8' : '',
-            'border-gray-300 focus:outline-none focus:border-none',
+            'border-gray-300 focus:border-none',
             error ? 'border-red-500 focus:ring-red-500' : '',
             className,
           )}

@@ -12,11 +12,32 @@ import {
   SelectValue,
 } from '@/components/UI/Select'
 import { Search } from 'lucide-react'
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const FilterGroup = () => {
+  const router = useRouter()
+  const [formData, setFormData] = useState({
+    query: '',
+    country: '',
+    industry: '',
+    date: '',
+  })
+
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault()
+    const params = new URLSearchParams({
+      query: formData.query,
+      country: formData.country || '',
+      industry: formData.industry || '',
+      date: formData.date || '',
+    })
+
+    router.push(`/events?${params.toString()}`)
+  }
+
+  const updateFormData = (value: string, key: string) => {
+    setFormData((prev) => ({ ...prev, [key]: value }))
   }
 
   return (
@@ -29,8 +50,13 @@ const FilterGroup = () => {
           placeholder='Search for events, products or buyers'
           className='w-[150px] md:w-[255px] h-[38px]'
           required
+          value={formData.query}
+          onChange={(e) => updateFormData(e.target.value, 'query')}
         />
-        <Select>
+        <Select
+          value={formData?.country}
+          onValueChange={(value) => updateFormData(value, 'country')}
+        >
           <SelectTrigger className='w-[150px]'>
             <SelectValue placeholder='Country' />
           </SelectTrigger>
@@ -42,7 +68,10 @@ const FilterGroup = () => {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Select>
+        <Select
+          value={formData?.industry}
+          onValueChange={(value) => updateFormData(value, 'industry')}
+        >
           <SelectTrigger className='w-[150px]'>
             <SelectValue placeholder='Industry' />
           </SelectTrigger>
@@ -54,8 +83,18 @@ const FilterGroup = () => {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Input placeholder='Date' className='w-[150px] h-[38px]' type='date' />
-        <Button type='submit' variant='default' className='w-[126px] h-[40px]'>
+        <Input
+          placeholder='Date'
+          className='w-[150px] h-[38px]'
+          type='date'
+          value={formData?.date}
+          onChange={(e) => updateFormData(e.target.value, 'date')}
+        />
+        <Button
+          type='submit'
+          variant='default'
+          className='w-[126px] h-[40px] bg-blue-800 hover:bg-blue-800'
+        >
           <Search /> Search
         </Button>
       </form>
